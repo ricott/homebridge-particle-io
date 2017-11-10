@@ -6,7 +6,7 @@
     "pin": "031-45-154"
   },
 
-  "description": "This is an example configuration file with one Particle platform. It contians 3 accessories, two lights and a temperature sensor. You should replace the access token and device id placeholder with your access token and device id",
+  "description": "This is an example configuration file with one Particle platform. It contians 4 accessories, two lights, a temperature sensor and a garage door. You should replace the access token and device id placeholder with your access token and device id",
 
   "platforms": [
     {
@@ -34,6 +34,14 @@
           "type": "temperaturesensor",
           "device_id": "<<device id>>",
           "event_name": "temperature"
+        },
+        {
+          "name": "Garage door",
+          "type": "garagedoor",
+          "device_id": "<<device id>>",
+          "function_name": "openClose",
+          "args": "{STATE}",
+          "event_name": "door-state"
         }
       ]
     }

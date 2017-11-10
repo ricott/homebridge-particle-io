@@ -44,10 +44,13 @@ class SensorAccessory extends Accessory {
       this.type
     );
 
-    this.setCurrentValue(parseFloat(result));
-    service
-    .getCharacteristic(this.CharacteristicType)
-    .setValue(this.value);
+    //Need support for non float sensor values
+    if (!isNaN(result)) {
+      this.setCurrentValue(parseFloat(result));
+    } else {
+      this.setCurrentValue(result);
+    }
+    service.getCharacteristic(this.CharacteristicType).setValue(this.value);
   }
 
   setCurrentValue(value) {
